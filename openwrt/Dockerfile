@@ -7,9 +7,9 @@ RUN sudo chmod 777 /opt &&\
     cd /opt/openwrt &&\
     git remote add origin https://git.openwrt.org/openwrt/openwrt.git 
 
-RUN git pull 
-RUN ./scripts/feeds update -a 
-RUN ./scripts/feeds install -a 
-RUN make download
+RUN cd /opt/openwrt && git pull 
+RUN cd /opt/openwrt && ./scripts/feeds update -a 
+RUN cd /opt/openwrt && ./scripts/feeds install -a 
+RUN cd /opt/openwrt && make download
 
 WORKDIR /opt/openwrt
